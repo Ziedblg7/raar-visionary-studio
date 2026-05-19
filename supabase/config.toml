@@ -1,0 +1,6 @@
+[functions.estimator]
+enabled = true
+
+[functions.estimator.env]
+# Set your OpenAI API key in Supabase Dashboard → Edge Functions → Secrets
+# OPENAI_API_KEY = "sk-..."

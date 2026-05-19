@@ -1,0 +1,16 @@
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [QSA,L]
+
+<IfModule mod_headers.c>
+    # Prevent clickjacking
+    Header set X-Frame-Options "SAMEORIGIN"
+    # Prevent MIME type sniffing
+    Header set X-Content-Type-Options "nosniff"
+    # Control referrer information
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    # Enable basic XSS protection in older browsers
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
